@@ -139,6 +139,7 @@ with tab1:
             data_raw.drop('default', inplace=True, axis=1)''' 
                 st.code(drop_unknown, language='python')
             'Next up is the fact that our data is unusable due to it being in a non-numerical format'
+            'To fix this we spread age out into 4 categories, replace yes/no with 1/0 on housing/loan, LabelEncode education and make a, admittedly subjective, list for jobs based on income'
             def age(data_raw):
                 data_raw.loc[data_raw['age'] <= 30, 'age'] = 1
                 data_raw.loc[(data_raw['age'] > 30) & (data_raw['age'] <= 45), 'age'] = 2
@@ -169,3 +170,4 @@ with tab1:
             data_raw['education'] = data_raw['education'].replace({'illiterate':'a_illiterate'})
             data_raw['education'] = labelencoder_X.fit_transform(data_raw['education'])'''
                 st.code(numerification, language='python')
+            st.caption('this is not a perfect way of handling the issue but onehotencoding gave rise to issues.')
