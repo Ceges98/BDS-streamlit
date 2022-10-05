@@ -238,4 +238,4 @@ alt.Chart(vis_data).mark_circle(size=60).encode(
     color=alt.Color('cluster:N', scale=alt.Scale(scheme='dark2')) #use N after the var to tell altair that it's categorical
 ).interactive()'''
             st.code(rest, language='python')
-
+            'The reasoning behind showing this block of code is mainly to show the procedure that was taken following the data-preprocessing and showing a more in-depth process is not very useful as the end result is flawed'
