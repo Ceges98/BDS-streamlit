@@ -110,7 +110,7 @@ with tab1:
         st.subheader('This will be a journey through the creation of UML customer segmentation')
         'Let us start with the end result'
         from PIL import Image
-        img = Image.open('https://github.com/Ceges98/BDS-Project/main/visualization.png')
+        img = Image.open('visualization.png')
         st.image(img)
         st.text('To start the process of customer segmentation we need data regarding them.')
         st.write(data.iloc[:, 0:7].head(5))
