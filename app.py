@@ -109,8 +109,6 @@ with tab1:
         st.title("Unsupervised Machine Learning")
         st.subheader('This will be a journey through the creation of UML customer segmentation')
         'Let us start with the end result'
-        from PIL import Image
-        img = Image.open('visualization.png')
-        st.image(img)
+        st.image('https://raw.githubusercontent.com/Ceges98/BDS-Project/main/visualization.png')
         st.text('To start the process of customer segmentation we need data regarding them.')
         st.write(data.iloc[:, 0:7].head(5))
