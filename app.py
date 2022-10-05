@@ -107,19 +107,13 @@ with tab1:
     with tab4:
         data = pd.read_csv("https://raw.githubusercontent.com/Ceges98/BDS-Project/main/bank_marketing.csv", sep=";")
         with st.expander("UML"):
-        st.markdown("""
-        This app will help you determine what you should be asking people to pay per night for staying at your awesome place.
-        We trained an AI on successful places in Copenhagen. It will give you a pricing suggestion given a few inputs.
-        We recommend going around 350kr up or down depending on the amenities that you can provide and the quality of your place.
-        As a little extra 🌟, we added an AI explainer 🤖 to understand factors driving prices up or down.
-        """)
-        st.title("Unsupervised Machine Learning")
-        st.subheader('This will be a journey through the creation of UML customer segmentation, and an analysis of the obtained result.')
-        'Let us start with the end result'
-        st.image('https://raw.githubusercontent.com/Ceges98/BDS-Project/main/visualization.png', caption='not an optimal result')
-        st.subheader('How did this come to be?')
-        'To start the process of customer segmentation we need data regarding them.'
-        client_data = data.iloc[:, 0:7]
-        st.write(client_data.head(100))
-        st.caption('these are the first 100 entrances in our relevant dataset, currently unfiltered.')
-        'Some work is needed for this data to be operable in regards to UML'
+            st.title("Unsupervised Machine Learning")
+            st.subheader('This will be a journey through the creation of UML customer segmentation, and an analysis of the obtained result.')
+            'Let us start with the end result'
+            st.image('https://raw.githubusercontent.com/Ceges98/BDS-Project/main/visualization.png', caption='not an optimal result')
+            st.subheader('How did this come to be?')
+            'To start the process of customer segmentation we need data regarding them.'
+            client_data = data.iloc[:, 0:7]
+            st.write(client_data.head(100))
+            st.caption('these are the first 100 entrances in our relevant dataset, currently unfiltered.')
+            'Some work is needed for this data to be operable in regards to UML'
