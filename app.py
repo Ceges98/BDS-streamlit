@@ -190,7 +190,7 @@ with tab1:
             data_no_unknown = data_no_unknown[data_no_unknown["housing"].str.contains("unknown") == False]
             data_no_unknown = data_no_unknown[data_no_unknown["loan"].str.contains("unknown") == False]
             data_no_unknown.drop('default', inplace=True, axis=1)
-            chart_data = pd.DataFrame(data_no_unknown, columns=["age"])
+            chart_data = pd.DataFrame(data_no_unknown.T, columns=["age"])
             st.line_chart(chart_data)
             st.write(data_no_unknown)
 
