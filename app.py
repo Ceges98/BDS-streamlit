@@ -6,6 +6,7 @@ from xgboost import XGBRegressor # we use a trained XGBoost model...and therefor
 from sklearn.preprocessing import StandardScaler
 from sklearn.preprocessing import LabelEncoder
 import shap # add prediction explainability
+import matplotlib.pyplot as plt
 
 import numpy as np
 import itertools # we need that to flatten ohe.categories_ into one list for columns
@@ -192,5 +193,6 @@ with tab1:
             data_no_unknown.drop('default', inplace=True, axis=1)
             chart_data = pd.DataFrame(data_no_unknown, columns=["age"])
             st.line_chart(chart_data)
-            st.write(data_no_unknown)
+            plt.hist(data_no_unknown['age'])
+            plt.show
 
