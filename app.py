@@ -126,6 +126,7 @@ with tab1:
             data_raw = data_raw[data_raw["housing"].str.contains("unknown") == False]
             data_raw = data_raw[data_raw["loan"].str.contains("unknown") == False]
             data_raw.drop('default', inplace=True, axis=1)
+            data_no_unknown = data_raw
             tab01, tab02 = st.tabs(['new data', 'code'])
             with tab01:
                 st.write(data_raw.head(50))
@@ -183,6 +184,6 @@ with tab1:
                 scaled_date = '''data_raw_scaled = scaler.fit_transform(data_raw)'''
                 st.code(scaled_date, language='python')
             st.caption('Now the previous sizes of the values have been standard scaled.')
-            chart_data = pd.DataFrame(data_raw, columns=["age"])
+            chart_data = pd.DataFrame(data_no_unknown, columns=["age"])
             st.bar_chart(chart_data)
 
