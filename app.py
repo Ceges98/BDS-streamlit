@@ -106,4 +106,5 @@ with tab1:
         st.title("this is tab 2")
     with tab4:
         st.title("Unsupervised Machine Learning")
-        st.subheader('this will be a journey through the failed creation of UML customer segmentation')
+        st.subheader('this will be a journey through the creation of UML customer segmentation')
+        data = pd.read_csv("https://raw.githubusercontent.com/Ceges98/BDS-Project/main/bank_marketing.csv", sep=";")
