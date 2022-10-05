@@ -109,5 +109,6 @@ with tab1:
         st.title("Unsupervised Machine Learning")
         st.subheader('This will be a journey through the creation of UML customer segmentation')
         'Let us start with the end result'
+        st.image(https://github.com/Ceges98/BDS-Project/blob/ebaf745ce6b1d5db5a6aad9937351f4d6f9570a6/visualization.png)
         st.text('To start the process of customer segmentation we need data regarding them.')
         st.write(data.iloc[:, 0:7].head(5))
