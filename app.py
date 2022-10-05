@@ -170,4 +170,8 @@ with tab1:
             data_raw['education'] = data_raw['education'].replace({'illiterate':'a_illiterate'})
             data_raw['education'] = labelencoder_X.fit_transform(data_raw['education'])'''
                 st.code(numerification, language='python')
-            st.caption('this is not a perfect way of handling the issue but onehotencoding gave rise to issues.')
+            st.caption('this is not a perfect way of handling the issue but onehotencoding gave rise to different issues.')
+            'It may be noted that marriage is currently untouched, this is due to troubles with OneHotEncoding. As such is was deemed unwise to throw in yet another subjective variable. It will therefor be dropped.'
+            data_raw = data_raw.drop(columns = 'marital')
+            st.write(data_raw.head())
+
