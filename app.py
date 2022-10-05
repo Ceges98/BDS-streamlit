@@ -240,6 +240,7 @@ alt.Chart(vis_data).mark_circle(size=60).encode(
             st.code(rest, language='python')
             'The reasoning behind showing this block of code is mainly to show the procedure that was taken following the data-preprocessing and showing a more in-depth process is not very useful as the end result is flawed.'
             'Speaking of, here we have once again the result so that the flaws can be discussed'
-            st.image('https://raw.githubusercontent.com/Ceges98/BDS-Project/main/visualization.png', caption='not an optimal result')
-            'There are 3 main glaring flaws:'
-            st.caption('1. The clusters are randomly dispersed.')
+            st.image('https://raw.githubusercontent.com/Ceges98/BDS-Project/main/visualization.png', caption='still not optimal')
+            '''There are 2 main glaring flaws:
+            1. The clusters are randomly dispersed.
+            2. An extra null-cluster has been created.'''
