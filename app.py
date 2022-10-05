@@ -107,9 +107,10 @@ with tab1:
     with tab4:
         data = pd.read_csv("https://raw.githubusercontent.com/Ceges98/BDS-Project/main/bank_marketing.csv", sep=";")
         st.title("Unsupervised Machine Learning")
-        st.subheader('This will be a journey through the creation of UML customer segmentation, and an analysis of the obtained result')
+        st.subheader('This will be a journey through the creation of UML customer segmentation, and an analysis of the obtained result.')
         'Let us start with the end result'
         st.image('https://raw.githubusercontent.com/Ceges98/BDS-Project/main/visualization.png', caption='not an optimal result')
         st.subheader('How did this come to be?')
         'To start the process of customer segmentation we need data regarding them.'
-        st.write(data.iloc[:, 0:7].head(5))
+        st.write(data.iloc[:, 0:7].head(100))
+        st.caption('these are the first 100 entrances in our relevant dataset, currently unfiltered')
