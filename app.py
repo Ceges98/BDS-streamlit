@@ -183,6 +183,6 @@ with tab1:
                 scaled_date = '''data_raw_scaled = scaler.fit_transform(data_raw)'''
                 st.code(scaled_date, language='python')
             st.caption('Now the previous sizes of the values have been standard scaled.')
-            chart_data = pd.DataFrame(data_raw, columns=["age", "job", "education"])
+            chart_data = pd.DataFrame(data_raw, columns=["age"])
             st.bar_chart(chart_data)
 
