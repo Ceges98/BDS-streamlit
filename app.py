@@ -194,7 +194,7 @@ with tab1:
             chart_data = pd.DataFrame(data_no_unknown, columns=["age"])
             arr = data_no_unknown['age']
             fig, ax = plt.subplots()
-            ax.hist(arr, bins=20)
+            ax.hist(arr, bins=4)
 
             st.pyplot(fig)
 
