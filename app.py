@@ -241,7 +241,10 @@ alt.Chart(vis_data).mark_circle(size=60).encode(
             'The reasoning behind showing this block of code is mainly to show the procedure that was taken following the data-preprocessing and showing a more in-depth process is not very useful as the end result is flawed.'
             'Speaking of, here we have once again the result so that the flaws can be discussed'
             st.image('https://raw.githubusercontent.com/Ceges98/BDS-Project/main/visualization.png', caption='still not optimal')
-            '''To understand the flaws we have to look at the goal. The goal of this model was to place the customers in to clusters based on their data.
+            '''To understand the flaws we have to look at the goal. 
+            The goal of this model was to place the customers in to clusters based on their data.
             As such there are 2 problems:
             1. The clusters are randomly dispersed.
-            2. An extra null-cluster has been created.'''
+            2. An extra null-cluster has been created.
+            Optimally we would be able to find and fix the problem causing these flaws but as of know this model
+            has presented a learning opportunity and not a finished piece of work.'''
