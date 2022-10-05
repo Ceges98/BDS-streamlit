@@ -104,6 +104,6 @@ with tab1:
 
     with tab2:
         st.title("this is tab 2")
-    with tab3:
-        st.title("Unsupervised Machine Learning")
-        st.subheader('this will be a journey tthrought the failed creation of UML customer segmentation')
+with tab3:
+    st.title("Unsupervised Machine Learning")
+    st.subheader('this will be a journey through the failed creation of UML customer segmentation')
