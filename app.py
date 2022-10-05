@@ -109,7 +109,27 @@ with tab1:
     with tab4:
         data = pd.read_csv("https://raw.githubusercontent.com/Ceges98/BDS-Project/main/bank_marketing.csv", sep=";")
         with st.expander("Recommended customer segmentation based on plots"):
-            'to be completed'
+            'Here we will perform EDA based on our bank-client data and use this to recommend specific groups of customers'
+            fig, ax = plt.subplots(2,3, figsize=(17,13))
+            cat = data_raw.iloc[: , :7].select_dtypes('object').columns.to_list()
+            cat = cat[:-1]
+            ax = ax.ravel()
+            position = 0
+            for i in cat:
+    
+                order = data_raw.iloc[: , :7][i].value_counts().index
+                sns.countplot(data=data_raw, x=i, ax=ax[position], hue='y', palette='GnBu', order=order)
+                ax[position].tick_params(labelrotation=90)
+                ax[position].set_title(i, fontdict={'fontsize':17})
+    
+                position += 1
+
+            plt.subplots_adjust(hspace=0.7)
+
+            plt.show()
+
+
+
         with st.expander("UML"):
             st.title("Unsupervised Machine Learning")
             st.subheader('This will be a journey through the creation of UML customer segmentation, and an analysis of the obtained result.')
@@ -241,9 +261,9 @@ alt.Chart(vis_data).mark_circle(size=60).encode(
             'The reasoning behind showing this block of code is mainly to show the procedure that was taken following the data-preprocessing and showing a more in-depth process is not very useful as the end result is flawed.'
             'Speaking of, here we have once again the result so that the flaws can be discussed'
             st.image('https://raw.githubusercontent.com/Ceges98/BDS-Project/main/visualization.png', caption='still not optimal')
-            '''To understand the flaws we have to look at the goal. 
-            The goal of this model was to place the customers in to clusters based on their data.
-            As such there are 2 problems:
+            '''To understand the flaws we have to look at the goal of the model. 
+            The goal of this model was to place the customers in clusters based on their data.
+            As such there are two problems:
             1. The clusters are randomly dispersed.
             2. An extra null-cluster has been created.
             Optimally we would be able to find and fix the problem causing these flaws but as of know this model
