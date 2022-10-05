@@ -21,7 +21,7 @@ with colT2:
    st.title('HR Managing Tool Project')
 
 
-tab1, tab2, tab3 = st.tabs(["Predictor tool SML", "HR Managererial Tool", "SML"])
+tab1, tab2, tab3, tab4 = st.tabs(["Predictor tool SML", "HR Managererial Tool", "SML", "UML"])
 
 with tab1:
 
@@ -104,3 +104,6 @@ with tab1:
 
     with tab2:
         st.title("this is tab 2")
+    with tab3:
+        st.title("Unsupervised Machine Learning")
+        st.subheader('this will be a journey tthrought the failed creation of UML customer segmentation')
