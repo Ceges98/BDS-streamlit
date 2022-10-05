@@ -186,4 +186,5 @@ with tab1:
             st.caption('Now the previous sizes of the values have been standard scaled.')
             chart_data = pd.DataFrame(data_no_unknown, columns=["age"])
             st.bar_chart(chart_data)
+            st.write(data_no_unknown)
 
