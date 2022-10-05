@@ -182,6 +182,7 @@ with tab1:
             with tab06:
                 scaled_date = '''data_raw_scaled = scaler.fit_transform(data_raw)'''
                 st.code(scaled_date, language='python')
-            st.caption('Now the previous sizes of the values have been standard scaled so that the variance in sizes wont matter')
-            
+            st.caption('Now the previous sizes of the values have been standard scaled.')
+            chart_data = data_raw(columns=["age", "job", "education"])
+            st.bar_chart(chart_data)
 
