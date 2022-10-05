@@ -109,4 +109,4 @@ with tab1:
         st.title("Unsupervised Machine Learning")
         st.subheader('this will be a journey through the creation of UML customer segmentation')
         st.text('to start the process of customer segmentation we need data regarding them.')
-        st.write(data.iloc[:, 0:6])
+        st.write(data.iloc[:, 0:7].head(5))
