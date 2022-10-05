@@ -21,7 +21,7 @@ with colT2:
    st.title('HR Managing Tool Project')
 
 
-tab1, tab2, tab3, tab4 = st.tabs(["Predictor tool SML", "HR Managererial Tool", "SML", "UML"])
+tab1, tab2, tab3, tab4 = st.tabs(["Predictor tool SML", "HR Managererial Tool", "SML", "Customer Segmentation and UML"])
 
 with tab1:
 
@@ -106,6 +106,13 @@ with tab1:
         st.title("this is tab 2")
     with tab4:
         data = pd.read_csv("https://raw.githubusercontent.com/Ceges98/BDS-Project/main/bank_marketing.csv", sep=";")
+        with st.expander("UML"):
+        st.markdown("""
+        This app will help you determine what you should be asking people to pay per night for staying at your awesome place.
+        We trained an AI on successful places in Copenhagen. It will give you a pricing suggestion given a few inputs.
+        We recommend going around 350kr up or down depending on the amenities that you can provide and the quality of your place.
+        As a little extra 🌟, we added an AI explainer 🤖 to understand factors driving prices up or down.
+        """)
         st.title("Unsupervised Machine Learning")
         st.subheader('This will be a journey through the creation of UML customer segmentation, and an analysis of the obtained result.')
         'Let us start with the end result'
