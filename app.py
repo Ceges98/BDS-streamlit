@@ -115,7 +115,23 @@ with tab1:
             st.image('https://raw.githubusercontent.com/Ceges98/BDS-Project/main/visualization.png', caption='not an optimal result')
             st.subheader('How did this come to be?')
             'To start the process of customer segmentation we need data regarding them.'
-            client_data = data.iloc[:, 0:7]
-            st.write(client_data.head(100))
+            data_raw = data.iloc[:, 0:7]
+            st.write(data_raw.head(100))
             st.caption('these are the first 100 entrances in our relevant dataset, currently unfiltered.')
-            'Some work is needed for this data to be operable in regards to UML'
+            'Some work is needed for this data to be operable in regards to UML, first we remove the unknown'
+            data_raw = data_raw[data_raw["job"].str.contains("unknown") == False]
+            data_raw = data_raw[data_raw["marital"].str.contains("unknown") == False]
+            data_raw = data_raw[data_raw["education"].str.contains("unknown") == False]
+            data_raw = data_raw[data_raw["housing"].str.contains("unknown") == False]
+            data_raw = data_raw[data_raw["loan"].str.contains("unknown") == False]
+            tab01, tab02 = st.tabs('new data', 'code')
+            with tab01:
+                st.write(data_raw.head(100))
+            with tab02:
+                drop_unknown = '''data_raw = data_raw[data_raw["job"].str.contains("unknown") == False]
+            data_raw = data_raw[data_raw["marital"].str.contains("unknown") == False]
+            data_raw = data_raw[data_raw["education"].str.contains("unknown") == False]
+            data_raw = data_raw[data_raw["housing"].str.contains("unknown") == False]
+            data_raw = data_raw[data_raw["loan"].str.contains("unknown") == False]''' 
+                st.code(drop_unknown, language='python')
+            
