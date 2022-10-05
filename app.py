@@ -138,3 +138,16 @@ with tab1:
             data_raw.drop('default', inplace=True, axis=1)''' 
                 st.code(drop_unknown, language='python')
             'Next up is the fact that our data is unusable due to it being in a non-numerical format'
+            def age(data_raw):
+                data_raw.loc[data_raw['age'] <= 30, 'age'] = 1
+                data_raw.loc[(data_raw['age'] > 30) & (data_raw['age'] <= 45), 'age'] = 2
+                data_raw.loc[(data_raw['age'] > 45) & (data_raw['age'] <= 65), 'age'] = 3
+                data_raw.loc[(data_raw['age'] > 65) & (data_raw['age'] <= 98), 'age'] = 4 
+                return data_raw
+            age(data_raw);
+            data_raw = data_raw.replace(to_replace=['yes', 'no'], value=[1, 0])
+            data_raw = data_raw.replace(to_replace=['unemployed', 'student', 'housemaid', 'blue-collar', 'services', 'retired', 'technician', 'admin.', 'self-employed', 'entrepreneur', 'management'], value=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
+            labelencoder_X = LabelEncoder()  
+            data_raw['education'] = data_raw['education'].replace({'illiterate':'a_illiterate'})
+            data_raw['education'] = labelencoder_X.fit_transform(X2['education'])
+            st.write(data_raw.head(5))
