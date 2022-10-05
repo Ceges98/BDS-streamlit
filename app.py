@@ -126,7 +126,7 @@ with tab1:
             data_raw = data_raw[data_raw["loan"].str.contains("unknown") == False]
             tab01, tab02 = st.tabs(['new data', 'code'])
             with tab01:
-                st.write(data_raw.head(100))
+                st.write(data_raw.head(50))
             with tab02:
                 drop_unknown = '''data_raw = data_raw[data_raw["job"].str.contains("unknown") == False]
             data_raw = data_raw[data_raw["marital"].str.contains("unknown") == False]
