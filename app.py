@@ -127,6 +127,7 @@ with tab1:
             data_raw = data_raw[data_raw["housing"].str.contains("unknown") == False]
             data_raw = data_raw[data_raw["loan"].str.contains("unknown") == False]
             data_raw.drop('default', inplace=True, axis=1)
+            data = data_raw
             tab01, tab02 = st.tabs(['new data', 'code'])
             with tab01:
                 st.write(data_raw.head(50))
@@ -140,7 +141,7 @@ with tab1:
             data_raw.drop('default', inplace=True, axis=1)''' 
                 st.code(drop_unknown, language='python')
             'Next up is the fact that our data is unusable due to it being in a non-numerical format'
-            'To fix this we spread age out into 4 categories, replace yes/no with 1/0 on housing/loan, LabelEncode education and make a, admittedly subjective, list for jobs based on income'
+            'To fix this spread age out into 4 categories, replace yes/no with 1/0 on housing/loan, LabelEncode education and make a, admittedly subjective, list for jobs based on income'
             def age(data_raw):
                 data_raw.loc[data_raw['age'] <= 30, 'age'] = 1
                 data_raw.loc[(data_raw['age'] > 30) & (data_raw['age'] <= 45), 'age'] = 2
@@ -186,7 +187,7 @@ with tab1:
             st.caption('Now the previous sizes of the values have been standard scaled.')
             'From here on out the process will be shown through code with comments'
             rest = '''#umap accepts standard-scaled data
-embeddings = umap_scaler.fit_transform(X2_scaled)
+embeddings = umap_scaler.fit_transform(data_raw_scaled)
 
 #we choose 6 clusters
 clusterer = KMeans(n_clusters=6)
@@ -195,7 +196,7 @@ Sum_of_squared_distances = []
 K = range(1,10)
 for k in K:
     km = KMeans(n_clusters=k)
-    km = km.fit(X2_scaled)
+    km = km.fit(data_raw_scaled)
     Sum_of_squared_distances.append(km.inertia_)
 
 #no clear elbow
@@ -206,24 +207,24 @@ plt.title('Elbow Method For Optimal k')
 plt.show()
 
 #we fit clusters on our scaled data
-clusterer.fit(X2_scaled)
+clusterer.fit(data_raw_scaled)
 
 #we then copy the clusters into the original file
-data_raw['cluster'] = clusterer.labels_
+data['cluster'] = clusterer.labels_
 
 #can use the clusters to fx. see the mean of age in our clusters.
 #note that age does not seem a big factor in clustering as the mean is mostly the same.
-data_raw.groupby('cluster').age.mean()
+data.groupby('cluster').age.mean()
 
 #prepping our vis_data
 vis_data = pd.DataFrame(embeddings)
-vis_data['cluster'] = data_raw['cluster']
-vis_data['education'] = data_raw['education']
-vis_data['age'] = data_raw['age']
-vis_data['job'] = data_raw['job']
-vis_data['marital'] = data_raw['marital']
-vis_data['housing'] = data_raw['housing']
-vis_data['loan'] = data_raw['loan']
+vis_data['cluster'] = data['cluster']
+vis_data['education'] = data['education']
+vis_data['age'] = data['age']
+vis_data['job'] = data['job']
+vis_data['marital'] = data['marital']
+vis_data['housing'] = data['housing']
+vis_data['loan'] = data['loan']
 
 vis_data.columns = ['x', 'y', 'cluster','education', 'age', 'job', 'marital', 'housing', 'loan']
 
