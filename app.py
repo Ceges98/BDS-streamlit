@@ -110,5 +110,6 @@ with tab1:
         st.subheader('This will be a journey through the creation of UML customer segmentation')
         'Let us start with the end result'
         st.image('https://raw.githubusercontent.com/Ceges98/BDS-Project/main/visualization.png', caption='not an optimal result')
-        st.text('To start the process of customer segmentation we need data regarding them.')
-        st.write(data.iloc[:, 0:7].head(5))
+        st.subheader('How did this come to be?')
+        'To start the process of customer segmentation we need data regarding them.'
+        data.iloc[:, 0:7].head(5)
