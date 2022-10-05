@@ -127,6 +127,7 @@ with tab1:
             tab01, tab02 = st.tabs(['new data', 'code'])
             with tab01:
                 st.write(data_raw.head(50))
+                st.caption('now there are no unknown values, the index also shows that rows have been dropped.')
             with tab02:
                 drop_unknown = '''data_raw = data_raw[data_raw["job"].str.contains("unknown") == False]
             data_raw = data_raw[data_raw["marital"].str.contains("unknown") == False]
