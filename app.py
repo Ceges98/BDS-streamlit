@@ -128,7 +128,7 @@ with tab1:
             tab01, tab02 = st.tabs(['new data', 'code'])
             with tab01:
                 st.write(data_raw.head(50))
-                st.caption('now there are no unknown values, the index also shows that rows have been dropped.')
+                st.caption('now there are no unknown values, we have also dropped the default column as it is almost solely "no" values and therefore should not be used to segment the customers.')
             with tab02:
                 drop_unknown = '''data_raw = data_raw[data_raw["job"].str.contains("unknown") == False]
             data_raw = data_raw[data_raw["marital"].str.contains("unknown") == False]
@@ -137,4 +137,4 @@ with tab1:
             data_raw = data_raw[data_raw["loan"].str.contains("unknown") == False]
             data_raw.drop('default', inplace=True, axis=1)''' 
                 st.code(drop_unknown, language='python')
-            'Next up is the fact that our data is'
+            'Next up is the fact that our data is unusable due to it being in a non-numerical format'
