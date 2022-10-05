@@ -174,4 +174,13 @@ with tab1:
             'It may be noted that marriage is currently untouched, this is due to troubles with OneHotEncoding. As such is was deemed unwise to throw in yet another subjective variable. It will therefor be dropped.'
             data_raw = data_raw.drop(columns = 'marital')
             st.write(data_raw.head())
+            'lastly these numbers need to be scaled'
+            data_raw = scaler.fit_transform(data_raw)
+            tab05, tab06 = st.tabs(['scaled data', 'code'])
+            with tab05:
+                st.write(data_raw.head())
+            with tab06:
+                scaled_date = '''data_raw = scaler.fit_transform(data_raw)'''
+                st.code(scaled_date, language='python')
+            
 
