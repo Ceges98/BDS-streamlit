@@ -236,7 +236,7 @@ alt.Chart(vis_data).mark_circle(size=60).encode(
     tooltip=['education', 'age', 'job', 'marital', 'housing', 'loan'],
     color=alt.Color('cluster:N', scale=alt.Scale(scheme='dark2')) #use N after the var to tell altair that it's categorical
 ).interactive()'''
-            st.code(rest, languare='python')
+            st.code(rest, language='python')
             
             
             
