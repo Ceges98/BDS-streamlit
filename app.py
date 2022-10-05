@@ -175,12 +175,12 @@ with tab1:
             data_raw = data_raw.drop(columns = 'marital')
             st.write(data_raw.head())
             'lastly these numbers need to be scaled'
-            data_raw = scaler.fit_transform(data_raw)
+            data_raw_scaled = scaler.fit_transform(data_raw)
             tab05, tab06 = st.tabs(['scaled data', 'code'])
             with tab05:
-                st.write(data_raw.head())
+                st.write(data_raw_scaled)
             with tab06:
-                scaled_date = '''data_raw = scaler.fit_transform(data_raw)'''
+                scaled_date = '''data_raw_scaled = scaler.fit_transform(data_raw)'''
                 st.code(scaled_date, language='python')
             
 
