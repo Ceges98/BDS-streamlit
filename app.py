@@ -127,6 +127,7 @@ with tab1:
             plt.subplots_adjust(hspace=0.7)
 
             plt.show()
+            'pls'
 
 
 
