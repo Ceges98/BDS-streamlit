@@ -110,24 +110,7 @@ with tab1:
         data = pd.read_csv("https://raw.githubusercontent.com/Ceges98/BDS-Project/main/bank_marketing.csv", sep=";")
         with st.expander("Recommended customer segmentation based on plots"):
             'Here we will perform EDA based on our bank-client data and use this to recommend specific groups of customers'
-            fig, ax = plt.subplots(2,3, figsize=(17,13))
-            cat = data_raw.iloc[: , :7].select_dtypes('object').columns.to_list()
-            cat = cat[:-1]
-            ax = ax.ravel()
-            position = 0
-            for i in cat:
-    
-                order = data_raw.iloc[: , :7][i].value_counts().index
-                sns.countplot(data=data_raw, x=i, ax=ax[position], hue='y', palette='GnBu', order=order)
-                ax[position].tick_params(labelrotation=90)
-                ax[position].set_title(i, fontdict={'fontsize':17})
-    
-                position += 1
-
-            plt.subplots_adjust(hspace=0.7)
-
-            plt.show()
-            'pls'
+            
 
 
 
