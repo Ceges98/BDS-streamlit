@@ -192,7 +192,9 @@ with tab1:
             data_no_unknown = data_no_unknown[data_no_unknown["loan"].str.contains("unknown") == False]
             data_no_unknown.drop('default', inplace=True, axis=1)
             chart_data = pd.DataFrame(data_no_unknown, columns=["age"])
-            st.line_chart(chart_data)
-            plt.hist(data_no_unknown['age'])
-            plt.show
+            arr = data_no_unknown['age']
+            fig, ax = plt.subplots()
+            ax.hist(arr, bins=20)
+
+            st.pyplot(fig)
 
