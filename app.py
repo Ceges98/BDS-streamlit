@@ -124,7 +124,7 @@ with tab1:
             data_raw = data_raw[data_raw["education"].str.contains("unknown") == False]
             data_raw = data_raw[data_raw["housing"].str.contains("unknown") == False]
             data_raw = data_raw[data_raw["loan"].str.contains("unknown") == False]
-            tab01, tab02 = st.tabs('new data', 'code')
+            tab01, tab02 = st.tabs(['new data', 'code'])
             with tab01:
                 st.write(data_raw.head(100))
             with tab02:
