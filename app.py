@@ -184,6 +184,75 @@ with tab1:
                 scaled_date = '''data_raw_scaled = scaler.fit_transform(data_raw)'''
                 st.code(scaled_date, language='python')
             st.caption('Now the previous sizes of the values have been standard scaled.')
+            'From here on out the process will be shown through code with comments'
+            rest = '''#umap accepts standard-scaled data
+embeddings = umap_scaler.fit_transform(X2_scaled)
+
+#we choose 6 clusters
+clusterer = KMeans(n_clusters=6)
+
+Sum_of_squared_distances = []
+K = range(1,10)
+for k in K:
+    km = KMeans(n_clusters=k)
+    km = km.fit(X2_scaled)
+    Sum_of_squared_distances.append(km.inertia_)
+
+#no clear elbow
+plt.plot(K, Sum_of_squared_distances, 'bx-')
+plt.xlabel('k')
+plt.ylabel('Sum_of_squared_distances')
+plt.title('Elbow Method For Optimal k')
+plt.show()
+
+#we fit clusters on our scaled data
+clusterer.fit(X2_scaled)
+
+#we then copy the clusters into the original file
+data_raw['cluster'] = clusterer.labels_
+
+#can use the clusters to fx. see the mean of age in our clusters.
+#note that age does not seem a big factor in clustering as the mean is mostly the same.
+data_raw.groupby('cluster').age.mean()
+
+#prepping our vis_data
+vis_data = pd.DataFrame(embeddings)
+vis_data['cluster'] = data_raw['cluster']
+vis_data['education'] = data_raw['education']
+vis_data['age'] = data_raw['age']
+vis_data['job'] = data_raw['job']
+vis_data['marital'] = data_raw['marital']
+vis_data['housing'] = data_raw['housing']
+vis_data['loan'] = data_raw['loan']
+
+vis_data.columns = ['x', 'y', 'cluster','education', 'age', 'job', 'marital', 'housing', 'loan']
+
+#finally plotting the data with relevant tooltips
+#for unknown reasons a null cluster is made alongside our other clusters
+alt.data_transformers.enable('default', max_rows=None)
+alt.Chart(vis_data).mark_circle(size=60).encode(
+    x='x',
+    y='y',
+    tooltip=['education', 'age', 'job', 'marital', 'housing', 'loan'],
+    color=alt.Color('cluster:N', scale=alt.Scale(scheme='dark2')) #use N after the var to tell altair that it's categorical
+).interactive()'''
+            st.code(rest, languare='python')
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
             data_no_unknown = data.iloc[:, 0:7]
             data_no_unknown = data_no_unknown[data_no_unknown["job"].str.contains("unknown") == False]
             data_no_unknown = data_no_unknown[data_no_unknown["marital"].str.contains("unknown") == False]
