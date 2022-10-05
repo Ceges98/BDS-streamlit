@@ -108,12 +108,6 @@ with tab1:
         st.title("this is tab 2")
     with tab4:
         data = pd.read_csv("https://raw.githubusercontent.com/Ceges98/BDS-Project/main/bank_marketing.csv", sep=";")
-        with st.expander("Recommended customer segmentation based on plots"):
-            'Here we will perform EDA based on our bank-client data and use this to recommend specific groups of customers'
-            
-
-
-
         with st.expander("UML"):
             st.title("Unsupervised Machine Learning")
             st.subheader('This will be a journey through the creation of UML customer segmentation, and an analysis of the obtained result.')
