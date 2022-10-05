@@ -238,33 +238,4 @@ alt.Chart(vis_data).mark_circle(size=60).encode(
     color=alt.Color('cluster:N', scale=alt.Scale(scheme='dark2')) #use N after the var to tell altair that it's categorical
 ).interactive()'''
             st.code(rest, language='python')
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            data_no_unknown = data.iloc[:, 0:7]
-            data_no_unknown = data_no_unknown[data_no_unknown["job"].str.contains("unknown") == False]
-            data_no_unknown = data_no_unknown[data_no_unknown["marital"].str.contains("unknown") == False]
-            data_no_unknown = data_no_unknown[data_no_unknown["education"].str.contains("unknown") == False]
-            data_no_unknown = data_no_unknown[data_no_unknown["housing"].str.contains("unknown") == False]
-            data_no_unknown = data_no_unknown[data_no_unknown["loan"].str.contains("unknown") == False]
-            data_no_unknown.drop('default', inplace=True, axis=1)
-            chart_data = pd.DataFrame(data_no_unknown, columns=["age"])
-            arr = data_no_unknown['age']
-            fig, ax = plt.subplots()
-            ax.hist(arr, bins=4)
-
-            st.pyplot(fig)
 
