@@ -112,5 +112,7 @@ with tab1:
         st.image('https://raw.githubusercontent.com/Ceges98/BDS-Project/main/visualization.png', caption='not an optimal result')
         st.subheader('How did this come to be?')
         'To start the process of customer segmentation we need data regarding them.'
-        st.write(data.iloc[:, 0:7].head(100))
-        st.caption('these are the first 100 entrances in our relevant dataset, currently unfiltered')
+        client_data = data.iloc[:, 0:7]
+        st.write(client_data.head(100))
+        st.caption('these are the first 100 entrances in our relevant dataset, currently unfiltered.')
+        'Some work is needed for this data to be operable in regards to UML'
