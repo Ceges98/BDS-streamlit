@@ -124,6 +124,7 @@ with tab1:
             data_raw = data_raw[data_raw["education"].str.contains("unknown") == False]
             data_raw = data_raw[data_raw["housing"].str.contains("unknown") == False]
             data_raw = data_raw[data_raw["loan"].str.contains("unknown") == False]
+            data_raw.drop('default', inplace=True, axis=1)
             tab01, tab02 = st.tabs(['new data', 'code'])
             with tab01:
                 st.write(data_raw.head(50))
@@ -133,6 +134,7 @@ with tab1:
             data_raw = data_raw[data_raw["marital"].str.contains("unknown") == False]
             data_raw = data_raw[data_raw["education"].str.contains("unknown") == False]
             data_raw = data_raw[data_raw["housing"].str.contains("unknown") == False]
-            data_raw = data_raw[data_raw["loan"].str.contains("unknown") == False]''' 
+            data_raw = data_raw[data_raw["loan"].str.contains("unknown") == False]
+            data_raw.drop('default', inplace=True, axis=1)''' 
                 st.code(drop_unknown, language='python')
-            
+            'Next up is the fact that our data is'
